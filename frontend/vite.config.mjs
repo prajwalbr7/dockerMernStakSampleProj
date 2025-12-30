@@ -6,5 +6,14 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 5173
+  ,
+    proxy: {
+      // Proxy API calls to backend during development
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false
+      }
+    }
   }
 });
